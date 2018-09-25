@@ -5,14 +5,11 @@ class Pet < SQLObject
 end
 
 
-p Pet.table_name
-puts
-p Pet.columns
-puts
-pet = Pet.new
-puts 'An instance of Pet respondes to attribute method calls.'
-p pet.respond_to? :name
-p pet.respond_to? :id
+pet = Pet.new({name: 'Some Pet Name', owner_id: 3})
+pet_id = pet.insert
 
-pet.name = 'Cat Name'
-p pet.name
+p pet_id
+p Pet.find(pet_id)
+pet.name = 'A good name'
+pet.update
+p Pet.find(pet_id)
