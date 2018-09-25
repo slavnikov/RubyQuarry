@@ -4,8 +4,8 @@ PRINT_QUERIES = ENV['PRINT_QUERIES'] == 'true'
 
 #Replace the sample.sql and sample.db file names with names of your own files in the root folder.
 ROOT_FOLDER = File.join(File.dirname(__FILE__), '..')
-DB_SQL_FILE = File.join(ROOT_FOLDER, 'sample.sql')
-DB_FILE = File.join(ROOT_FOLDER, 'sample.db')
+DB_SQL_FILE = File.join(ROOT_FOLDER, 'YOUR_SQL_SETUP_FILE_NAME_HERE')
+DB_FILE = File.join(ROOT_FOLDER, 'YOUR_DB_FILE_NAME_HERE')
 
 class DBConnection
 
@@ -30,7 +30,7 @@ class DBConnection
     DBConnection.open(DB_FILE)
   end
 
-  #Returns the refernece to the initiated databse or creates and populates a new onw.
+  #Returns the refernece to the initiated databse or creates and populates a new one.
   def self.instance
     open(DB_FILE) if @db.nil?
 
