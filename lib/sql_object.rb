@@ -67,7 +67,7 @@ class SQLObject
     datum.nil? ? nil : self.new(datum)
   end
 
-  # Creates a new object instance from a record retreived via a key value pair.
+  # Creates a new object instance from a record retreived via a single key value pair.
   def self.find_by(param_hash)
     key = param_hash.keys.first
     value = param_hash.values.first
@@ -156,7 +156,7 @@ class SQLObject
     SQL
   end
 
-  # Either inserts or updates a databse row based on the parameters of an object isntance. 
+  # Either inserts or updates a databse row based on the parameters of an object isntance.
   def save
     self.id ? self.update : self.insert
   end
