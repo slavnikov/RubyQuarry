@@ -1,7 +1,6 @@
 require_relative 'searchable'
 require 'active_support/inflector'
 
-# A utility for the user of the two classes after it. Sets up the attr_accessors for the three necessary variables and automates the access to model and table name.
 class AssocOptions
   attr_accessor(
     :foreign_key,
@@ -19,7 +18,6 @@ class AssocOptions
   end
 end
 
-# The below two classes automate the creation of variables that store the information necessary for associations to be able to make correct queries.
 class BelongsToOptions < AssocOptions
   def initialize(name, options = {})
     @foreign_key = options[:foreign_key] || (name.to_s + "_id").to_sym
@@ -42,7 +40,6 @@ module Associatable
     @assoc_options ||= {}
   end
 
-  #when called on the class, creates an association by adding an instance method named after the association. When called, the instance method will query the databse for a record in the association's table with a primary key identical to the foreign key of the instance. Will return a single object.
   def belongs_to(name, options = {})
     options = BelongsToOptions.new(name, options)
 
@@ -56,7 +53,6 @@ module Associatable
     @assoc_options ? (@assoc_options[name.to_sym] = options) : @assoc_options = {name.to_sym => options}
   end
 
-  #Same as belongs_to but the association instance method return an array of objects, even if there is only one object that matches the query.
   def has_many(name, options = {})
     options = HasManyOptions.new(name, self.to_s, options)
 

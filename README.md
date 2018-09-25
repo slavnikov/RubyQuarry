@@ -139,3 +139,11 @@ Associates the class to another class via a foreign key. By default the foreign 
 #Sets the default options of {foreign_key: :director_id, primary_key: :id, class_name: :Movie}
 Director.has_many(:movies)
 ```
+#### #[association]
+
+Returns an object representing the linked associated record(s).
+
+```Ruby
+  movie.director #=> #<Director:0x0000559953a76308 @attributes={:id=>1, :name=>"Francis F. Copolla"}>
+  director.movies #=> [#<Movie:0x0000559953e3e238 @attributes={:id=>1, :title=>"The Godfather", :director_id=>1}>, #<Movie:0x0000559953e3e030 @attributes={:id=>2, :title=>"The Godfather: Part 2", :director_id=>1}>]
+```

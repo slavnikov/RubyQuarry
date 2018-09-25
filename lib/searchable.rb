@@ -3,7 +3,6 @@ require_relative 'sql_object'
 
 module Searchable
 
-  # Return an array of objects that fit the search criteria.
   def where(params)
     where_clause = ""
     params.each do |name_attr, value|
