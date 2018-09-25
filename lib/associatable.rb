@@ -38,6 +38,10 @@ end
 
 module Associatable
 
+  def assoc_options
+    @assoc_options ||= {}
+  end
+
   #when called on the class, creates an association by adding an instance method named after the association. When called, the instance method will query the databse for a record in the association's table with a primary key identical to the foreign key of the instance. Will return a single object.
   def belongs_to(name, options = {})
     options = BelongsToOptions.new(name, options)
@@ -48,6 +52,8 @@ module Associatable
       .where({options.primary_key => self.send(options.foreign_key)})
       .first
     end
+
+    @assoc_options ? (@assoc_options[name.to_sym] = options) : @assoc_options = {name.to_sym => options}
   end
 
   #Same as belongs_to but the association instance method return an array of objects, even if there is only one object that matches the query.
