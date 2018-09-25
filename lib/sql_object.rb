@@ -67,6 +67,24 @@ class SQLObject
     datum.nil? ? nil : self.new(datum)
   end
 
+  # Creates a new object instance from a record retreived via a key value pair.
+  def self.find_by(param_hash)
+    key = param_hash.keys.first
+    value = param_hash.values.first
+
+    datum = DBConnection.execute(<<-SQL, value)
+      SELECT
+        *
+      FROM
+        #{self.table_name}
+      WHERE
+        #{key} = ?;
+    SQL
+    .first
+
+    datum.nil? ? nil : self.new(datum)
+  end
+
   # When an instance is initalized with a hash of parameters and values, the
   def initialize(params = {})
     params.each do |attr_name, value|
@@ -109,6 +127,7 @@ class SQLObject
     self.id = DBConnection.last_insert_row_id
   end
 
+  # Updates a record in the databse.
   def update
     col_names = self.class.columns[1..-1].join(', ')
     set_clause = ""
@@ -127,6 +146,17 @@ class SQLObject
     SQL
   end
 
+  # Deletes a record from the databse.
+  def delete
+    DBConnection.execute(<<-SQL )
+      DELETE FROM
+        #{self.class.table_name}
+      WHERE
+        id = #{self.id}
+    SQL
+  end
+
+  # Either inserts or updates a databse row based on the parameters of an object isntance. 
   def save
     self.id ? self.update : self.insert
   end

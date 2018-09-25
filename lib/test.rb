@@ -5,11 +5,8 @@ class Pet < SQLObject
 end
 
 
-pet = Pet.new({name: 'Some Pet Name', owner_id: 3})
-pet_id = pet.insert
-
-p pet_id
-p Pet.find(pet_id)
-pet.name = 'A good name'
-pet.update
-p Pet.find(pet_id)
+# pet = Pet.new({name: 'Test Pet', owner_id: 1})
+# pet_id = pet.save
+# p pet_id
+earl = Pet.find_by(name: 'Earl')
+p earl
