@@ -4,4 +4,6 @@ class Pet < SQLObject
 
 end
 
-puts Pet.table_name
+p Pet.table_name
+puts
+p Pet.columns

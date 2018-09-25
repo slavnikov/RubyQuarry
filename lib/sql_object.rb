@@ -2,8 +2,16 @@ require_relative 'db_connection'
 require 'active_support/inflector'
 
 class SQLObject
+  #Returns an array column names as symbols.
   def self.columns
+    @columns ||= DBConnection.execute2(<<-SQL)
+      SELECT
+        *
+      FROM
+        #{self.table_name}
+    SQL
 
+    @columns.first.map(&:to_sym)
   end
 
   def self.finalize!
@@ -13,6 +21,7 @@ class SQLObject
     @table_name = table_name
   end
 
+  #Returns the table name as a string.
   def self.table_name
     @table_name ||= self.to_s.tableize
   end
