@@ -1,5 +1,5 @@
 # RubyQuarry
-A simple library for managing SQLite3 databases with syntactic Ruby methods. Reduces the need for writing of raw SQL code and provides tools for creating relationships between objects allowing efficinet retrieval of linked resources.
+A simple object-relational mapping library for managing SQLite3 databases with syntactic Ruby methods. Reduces the need for writing of raw SQL code and provides tools for creating relationships between objects allowing efficinet retrieval of linked resources.
 
 ## Configuration
 Clone the repository and place the lib folder into your working root folder.
