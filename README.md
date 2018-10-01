@@ -1,12 +1,12 @@
 # RubyQuarry
-A simple library for managing SQLite3 databases with syntactic Ruby methods. Reduces the need for writing of raw SQL code and provides tools for creating relationships between objects allowing efficinet retrieval of linked resources.
+A simple library for managing SQLite3 databases with syntactic Ruby methods. Reduces the need for writing of raw SQL code and provides tools for creating relationships between objects allowing efficient retrieval of linked resources.
 
 ## Configuration
 Clone the repository and place the lib folder into your working root folder.
 ```bash
   git clone https://github.com/slavnikov/RubyQuarry.git
 ```
-In the db_connection.rb file, insert the name of your database file. You can also the name of a setup sql file that creates the tables in the databse, which will allow you to reset your databse with an included method. Place both files in your project's root directory.
+In the db_connection.rb file, insert the name of your database file. You can also the name of a setup sql file that creates the tables in the database, which will allow you to reset your database with an included method. Place both files in your project's root directory.
 
 ```Ruby
 # db_connection.rb
@@ -63,7 +63,7 @@ Creates a new instance of the object class with the attributes passed in as a ke
 
 #### ::all
 
-Returns an array of all the resources in a databse table associated with a given model.
+Returns an array of all the resources in a database table associated with a given model.
 
 ```Ruby
   Movie.all #=> [#<Movie:0x000055a3163c5870 @attributes={:id=>1, :title=>"The Godfather", :director_id=>1}>, #<Movie:0x0000 .... ]
@@ -87,7 +87,7 @@ Movie.find_by(name: "The Godfather") #=> #<Movie:0x000055a3163c5870 @attributes=
 
 #### ::where(params)
 
-Returns an array of object that match the parameters passed in as a key value hash in the arguments. Functions similarly to #find_by but accepts multiple keys and values and return an array even if only one matching record is brough back.
+Returns an array of object that match the parameters passed in as a key value hash in the arguments. Functions similarly to #find_by but accepts multiple keys and values and return an array even if only one matching record is brought back.
 
 #### #save
 
