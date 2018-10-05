@@ -14,6 +14,7 @@ In the db_connection.rb file, insert the name of your database file. You can als
 DB_SQL_FILE = File.join(ROOT_FOLDER, 'example.sql')
 DB_FILE = File.join(ROOT_FOLDER, 'example.db')
 ```
+
 ## Use
 
 When creating a model for a new database resource, require associatable_through.rb in the files that will be creating database model classes. Create classes representing the different resources in your database and have them inherit from the SQLObject class. At the end of each class declaration, run self.finalize! to create the necessary attribute associations.
@@ -68,6 +69,14 @@ Returns an array of all the resources in a database table associated with a give
 ```Ruby
   Movie.all #=> [#<Movie:0x000055a3163c5870 @attributes={:id=>1, :title=>"The Godfather", :director_id=>1}>, #<Movie:0x0000 .... ]
 ```
+
+#### ::first
+
+Returns the first resource in the database associated with a given model.
+
+#### ::last
+
+Returns the last resource in the database associated with a given model.
 
 ### ::find(id)
 

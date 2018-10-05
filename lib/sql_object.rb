@@ -44,6 +44,15 @@ class SQLObject
     self.parse_all(raw_hash)
   end
 
+  def self.first
+    self.all[0];
+  end
+
+  def self.last
+    all = self.all
+    all[all.length - 1];
+  end
+
   def self.parse_all(results)
     results.map { |raw_hash| self.new(raw_hash) }
   end

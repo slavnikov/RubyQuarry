@@ -5,6 +5,8 @@ PRINT_QUERIES = ENV['PRINT_QUERIES'] == 'true'
 ROOT_FOLDER = File.join(File.dirname(__FILE__), '..')
 DB_SQL_FILE = File.join(ROOT_FOLDER, 'YOUR_SQL_SETUP_FILE_NAME_HERE')
 DB_FILE = File.join(ROOT_FOLDER, 'YOUR_DB_FILE_NAME_HERE')
+# DB_SQL_FILE = File.join(ROOT_FOLDER, 'movies_demo.sql')
+# DB_FILE = File.join(ROOT_FOLDER, 'movies_demo.db')
 
 class DBConnection
 
