@@ -50,6 +50,15 @@ CREATE TABLE directors (
 );
   ```
 
+## Demo
+
+To interact with the demo:
+1. navigate to the db_connection.rb file
+  + comment out lines 6 & 7
+  + comment in lines 8 & 9
+2. Use your preferred REPL to load in DEMO.rb
+3. With the 3 models provided (Movie, Director, Studio), try out the different methods listed below.
+
 ## Main Methods
 
 #### ::new(attributes)
@@ -78,7 +87,7 @@ Returns the first resource in the database associated with a given model.
 
 Returns the last resource in the database associated with a given model.
 
-### ::find(id)
+#### ::find(id)
 
 Returns a single object representing a record in the database with a matching id.
 
@@ -86,7 +95,7 @@ Returns a single object representing a record in the database with a matching id
 Movie.find(2) #=> #<Movie:0x00005620b0aa0178 @attributes={:id=>2, :title=>"The Godfather: Part 2", :director_id=>1}>
 ```
 
-### ::find_by(param)
+#### ::find_by(param)
 
 Returns an object representing the first record in the database that matches the parameter passed as the argument.
 
