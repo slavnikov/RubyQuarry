@@ -54,8 +54,8 @@ CREATE TABLE directors (
 
 To interact with the demo:
 1. navigate to the db_connection.rb file
-  + comment out lines 6 & 7
-  + comment in lines 8 & 9
+   + comment out lines 6 & 7
+   + comment in lines 8 & 9
 2. Use your preferred REPL to load in DEMO.rb
 3. With the 3 models provided (Movie, Director, Studio), try out the different methods listed below.
 
